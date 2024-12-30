@@ -16,7 +16,12 @@ struct FoldersView: View {
                 List {
                     
                     Section{
-                        RecentCallItemView()
+                        NavigationLink {
+                            NotesView()
+                        } label: {
+                            RecentNotesItemView()
+                        }
+                        
                     } header: {
                         Text("iCloud")
                             .textCase(nil)
@@ -66,29 +71,25 @@ extension FoldersView {
 
 
 
-private struct RecentCallItemView: View {
+private struct RecentNotesItemView: View {
     var body: some View {
         Button { } label: {
             HStack{
                 Image(systemName: "folder")
                     .foregroundStyle(Color.notesYellow)
                 
-                recentCallsTextView()
+                recentTextView()
                 
                 Spacer()
                 
                 Text("4")
                     .font(.system(size: 16))
                     .foregroundStyle(.gray)
-                
-                Image(systemName: "chevron.forward")
-                    .font(.system(size: 12))
-                    .foregroundStyle(.gray)
             }
         }
     }
     
-    private func recentCallsTextView() -> some View {
+    private func recentTextView() -> some View {
         VStack(alignment: .leading){
             Text("Notes")
                 .foregroundStyle(.black)

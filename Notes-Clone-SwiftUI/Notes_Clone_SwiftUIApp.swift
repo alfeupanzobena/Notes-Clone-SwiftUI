@@ -11,7 +11,7 @@ import SwiftUI
 struct Notes_Clone_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FoldersView()
         }
     }
 }
